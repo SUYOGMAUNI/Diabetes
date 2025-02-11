@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Apply Google Font */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url("{{ url_for('static', filename='background.jpg') }}"); /* Update with actual image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin: 0;
+        }
+
+        /* Container Box */
+        .container {
+            background: rgba(0, 0, 0, 0.7); /* Dark transparent background */
+            padding: 50px;
+            border-radius: 10px;
+            width: 420px;
+            color: white;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Title */
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* Form Inputs */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            text-align: left;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        /* Button */
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-top: 15px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        /* Prediction Text */
+        #prediction {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Diabetes Prediction System</h1>
+        <form action="{{ url_for('predict') }}" method="POST">
+            <label>Pregnancy</label>
+            <input type="number" name="Pregnancy" placeholder="Enter number of pregnancies" required>
+
+            <label>Glucose</label>
+            <input type="number" name="Glucose" placeholder="Enter glucose level" required>
+
+            <label>Blood Pressure</label>
+            <input type="number" name="BloodPressure" placeholder="Enter blood pressure" required>
+
+            <label>Skin Thickness</label>
+            <input type="number" name="SkinThickness" placeholder="Enter skin thickness" required>
+
+            <label>Insulin</label>
+            <input type="number" name="Insulin" placeholder="Enter insulin level" required>
+
+            <label>BMI</label>
+            <input type="number" step="0.1" name="BodyMassIndex" placeholder="Enter BMI" required>
+
+            <label>Diabetes Pedigree Function</label>
+            <input type="number" step="0.01" name="DPF" placeholder="Enter DPF value" required>
+
+            <label>Age</label>
+            <input type="number" name="Age" placeholder="Enter age" required>
+
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
